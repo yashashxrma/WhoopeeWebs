@@ -17,10 +17,17 @@ Collaborators:
 
 5. [v]()
 
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [What is WhoopeeWebs](#What-is-WhoopeeWebs)
+  - [How to use WhoopeeWebs?](#how-to-use-study-date)
+  - [How to set up](#how-to-set-up)
 
 
 
-## How to set up
+
+## How to setup
 
 1. On GitHub, navigate to the yashashxrma/WhoopeeWebs repository.
    <img src=src/components/Homepage/ss3.PNG>
@@ -35,14 +42,8 @@ Collaborators:
     `$ git clone https://github.com/YOUR-USERNAME/WhoopeeWebs`
 
 6. Press Enter. Your local clone will be created.
-   `$ git clone https://github.com/YOUR-USERNAME/WhoopeeWeb`
-    Cloning into `WhoopeeWeb`...
-    remote: Counting objects: 10, done.
-    remote: Compressing objects: 100% (8/8), done.
-    remove: Total 10 (delta 1), reused 10 (delta 1)
-    Unpacking objects: 100% (10/10), done.
     
-For Other Way, you could visit our site [here]()!
+For Other Way, you could visit our site [here](a)!
 
 ---
 
