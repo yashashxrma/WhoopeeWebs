@@ -35,12 +35,12 @@ Collaborators:
     `$ git clone https://github.com/YOUR-USERNAME/WhoopeeWebs`
 
 6. Press Enter. Your local clone will be created.
-   `$ git clone https://github.com/YOUR-USERNAME/WhoopeeWeb
+   `$ git clone https://github.com/YOUR-USERNAME/WhoopeeWeb`
     Cloning into `WhoopeeWeb`...
     remote: Counting objects: 10, done.
     remote: Compressing objects: 100% (8/8), done.
     remove: Total 10 (delta 1), reused 10 (delta 1)
-    Unpacking objects: 100% (10/10), done.`
+    Unpacking objects: 100% (10/10), done.
     
 For Other Way, you could visit our site [here]()!
 
