@@ -117,4 +117,7 @@ header{
     height: 350px;
     border: 1px solid white;
 }
+.carousel-inner img{
+    opacity: 0.9;
+}
 
