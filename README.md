@@ -2,7 +2,7 @@
 <p align="center">
     <img src=img/ww.png height=200>
 </p>
-<p align="center">Project Description</p>
+<p align="center">**TIME TO ACHIEVE YOUR TARGET BY GETTING TO KNOW WHAT DEV REALLY IS**</p>
 
 
 **Collaborators**:
@@ -39,6 +39,9 @@ With our scouting the dev site [WhoopeeWebs™](https://unruffled-mayer-0f7872.n
 
 ## How to use WhoopeeWebs?
 - Visit Whoopee Webs and scroll down the page to get started by seeing the top skills that are in demand for the current time.
+-  <img src= height=200>
+  <img src= height=200>
+
 
 - In the Nav Bar you get options: Home,About us,Resources,Connect,Feedback.
 
@@ -50,6 +53,7 @@ With our scouting the dev site [WhoopeeWebs™](https://unruffled-mayer-0f7872.n
 
 
 - Connect Page allows you to view the top professional’s profile and it also helps you to connect with them on Github or LinkedIn.
+
 
 - You can also fill out the feedback form to let us know about your suggestions.
 
