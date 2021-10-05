@@ -1,6 +1,6 @@
 # WhoopeeWebs
 <p align="center">
-    <img src=img/logo.png height=200>
+    <img src=img/ww.png height=200>
 </p>
 <p align="center">Project Description</p>
 
