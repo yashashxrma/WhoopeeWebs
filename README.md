@@ -44,11 +44,11 @@ With our scouting the dev site [WhoopeeWebs™](https://unruffled-mayer-0f7872.n
 
 ## How to use WhoopeeWebs?
 - Visit Whoopee Webs and scroll down the page to get started by seeing the top skills that are in demand for the current time.
-  <img src= height=200>
+  <img src=img/2.png height=200>
 
 
 - In the Nav Bar you get options: Home,About us,Resources,Connect,Feedback.
-  <img src= height=200>
+  <img src=img/1.png height=200>
 
 
 - About us page tells you about the benefits of exploring various fields like *what should be kept in mind while aiming and various questions* and *meet option for tech talks with professionals from our college to benefit your future*
