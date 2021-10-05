@@ -80,7 +80,7 @@ With our scouting the dev site [WhoopeeWebs™](https://unruffled-mayer-0f7872.n
 
 6. Press Enter. Your local clone will be created.
     
-For Other Way, you could visit our site [here](a)!
+For Other Way, you could visit our site [here](https://unruffled-mayer-0f7872.netlify.app/)!
 
 ---
 
