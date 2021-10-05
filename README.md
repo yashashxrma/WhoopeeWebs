@@ -26,12 +26,15 @@ Collaborators:
 
 # What is WhoopeeWebs
 
--Stuck doing the same thing? And Want to kill the cliche in your life?
--Feeling clueless and wanting to kickstart your journey in the tech field but facing the dilemma in which field your interest lies in?
-  >Ever felt like for better placements what should my aim must be in rather going with the crowd.
--Or feeling like you need guidance in a particular field?
--Rather than following the crowd , explore different fields with the help of Whoopee Webs.
--It is a website that allows you to explore various technical skills by providing a vast range of options and helps you connect with the mentors in different specialised fields on Github or LinkedIn .You also get to know about in which field your peers are excelling in so that you can figure out which field you are interested in.
+- Stuck doing the same thing? And Want to kill the cliche in your life?
+
+  > Ever felt like for better placements what should my aim must be in rather going with the crowd.
+
+- Feeling clueless and wanting to kickstart your journey in the tech field but facing the dilemma in which field your interest lies in?
+- Or feeling like you need guidance in a particular field?
+- Rather than following the crowd , explore different fields with the help of Whoopee Webs.
+- It is a website that allows you to explore various technical skills by providing a vast range of options and helps you connect with the mentors in different specialised fields on Github or LinkedIn .You also get to know about in which field your peers are excelling in so that you can figure out which field you are interested in.
+
 
 
 
