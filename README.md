@@ -72,11 +72,11 @@ With our scouting the dev site [WhoopeeWebs™](https://unruffled-mayer-0f7872.n
 ## How to setup?
 
 1. On GitHub, navigate to the yashashxrma/WhoopeeWebs repository.
-   <img src=src/components/Homepage/ss3.PNG>
+   <img src=img/11.PNG>
 
 2. Go to code for cloning the repository using HTTPS, under "Clone with HTTPS", click on the clipboard sign.
 
-   <img src=src/components/Homepage/ss4.PNG>
+   <img src=img/22.PNG>
 
 3. Open Git Bash.
 4. Change the current working directory to the location where you want the cloned directory.
