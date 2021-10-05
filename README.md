@@ -2,7 +2,7 @@
 <p align="center">
     <img src=img/ww.png height=200>
 </p>
-<p align="center">**TIME TO ACHIEVE YOUR TARGET BY GETTING TO KNOW WHAT DEV REALLY IS**</p>
+<p align="center">TIME TO ACHIEVE YOUR TARGET BY GETTING TO KNOW WHAT DEV REALLY IS</p>
 
 
 **Collaborators**:
@@ -11,9 +11,9 @@
 
 2. [Nikita Singhal](https://github.com/nikita78699)
 
-3. [Pinaki]( https://github.com/pinaki18)
+3. [Pinaki](https://github.com/pinaki18)
 
-4. [a]()
+4. [Anuj Agarwal](https://github.com/anuj489/anuj489.git)
 
 5. [v]()
 
