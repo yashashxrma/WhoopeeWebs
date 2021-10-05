@@ -21,7 +21,8 @@
 
 - [Table of Contents](#table-of-contents)
 - [What is WhoopeeWebs](#What-is-WhoopeeWebs)
-  - [How to use WhoopeeWebs?](#how-to-use-study-date)
+  - [Why WhoopeeWebs?](#Why-to-use-WhoopeeWebs)
+  - [How to use WhoopeeWebs?](#how-to-use-WhoopeeWebs)
   - [How to set up](#how-to-set-up)
 
 # What is WhoopeeWebs?
@@ -36,7 +37,7 @@
 - It is a website that allows you to explore various technical skills by providing a vast range of options and helps you connect with the mentors in different specialised fields on Github or LinkedIn .You also get to know about in which field your peers are excelling in so that you can figure out which field you are interested in.
 
 With our scouting the dev site [WhoopeeWebs™](https://unruffled-mayer-0f7872.netlify.app/), Our team helps you to get the best skills out of you whether you are a novice or skilled *You will find the professionals portfolios with their best projects they have worked on and for a motivation coz why not try everything before knowing what you really like*  WhoopeeWebs™ is **candy crinkles** attempt at **killing the cliche** kill the part of you where most of us get lost in dev area and finally gives up taking codejam as an example many teams have given up coz they cant do development in 5days **they wont learn anything like this**.
-
+##
 ## How to use WhoopeeWebs?
 - Visit Whoopee Webs and scroll down the page to get started by seeing the top skills that are in demand for the current time.
 -  <img src= height=200>
