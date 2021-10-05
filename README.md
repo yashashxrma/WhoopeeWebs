@@ -38,20 +38,18 @@
 With our scouting the dev site [WhoopeeWebs™](https://unruffled-mayer-0f7872.netlify.app/), Our team helps you to get the best skills out of you whether you are a novice or skilled *You will find the professionals portfolios with their best projects they have worked on and for a motivation coz why not try everything before knowing what you really like*  WhoopeeWebs™ is **candy crinkles** attempt at **killing the cliche** kill the part of you where most of us get lost in dev area and finally gives up taking codejam as an example many teams have given up coz they cant do development in 5days **they wont learn anything like this**.
 
 ## How to use WhoopeeWebs?
-- Visit Whoopee Webs and scroll down the page to see top technical skills 
+- Visit Whoopee Webs and scroll down the page to get started by seeing the top skills that are in demand for the current time.
+
+- In the Nav Bar you get options: Home,About us,Resources,Connect,Feedback.
 
 
-- In the Nav Bar you get options: Home,About us,Resources,Connect,Feedback
+- About us page tells you about the benefits of exploring various fields like *what should be kept in mind while aiming and various questions* and *meet option for tech talks with professionals from our college to benefit your future*
 
 
-- About us page tells you about the benefits of exploring various fields.
+- Resources page offers links to various courses and video lectures online that you can refer to on your own to know more about your chosen field. You can also go through the Frequently Asked Questions(FAQs) section to clear your doubts.Whatever you learned from professionals you might want to know how to achieve all this so this section will provide you maximum info it can.
 
 
-- Resources page offers links to various courses and video lectures online that you can refer to on your own to know more about your chosen field. You can also go through the Frequently Asked Questions(FAQs) section to clear your doubts.
-
-
-- Connect Page allows you to view the top mentor’s profile and it also helps you to connect with them on Github or LinkedIn.
-
+- Connect Page allows you to view the top professional’s profile and it also helps you to connect with them on Github or LinkedIn.
 
 - You can also fill out the feedback form to let us know about your suggestions.
 
