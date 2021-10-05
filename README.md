@@ -52,7 +52,8 @@ With our scouting the dev site [WhoopeeWebs™](https://unruffled-mayer-0f7872.n
 
 
 - About us page tells you about the benefits of exploring various fields like *what should be kept in mind while aiming and various questions* and *meet option for tech talks with professionals from our college to benefit your future*
-    <img src=img/2.PNG height=200>
+   
+  <img src=img/6.PNG height=200>
 
 - Resources page offers links to various courses and video lectures online that you can refer to on your own to know more about your chosen field. You can also go through the Frequently Asked Questions(FAQs) section to clear your doubts.Whatever you learned from professionals you might want to know how to achieve all this so this section will provide you maximum info it can.
     <img src=img/3.PNG height=200>
