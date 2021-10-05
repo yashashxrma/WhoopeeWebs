@@ -38,6 +38,7 @@
 
 With our scouting the dev site [WhoopeeWebs™](https://unruffled-mayer-0f7872.netlify.app/), Our team helps you to get the best skills out of you whether you are a novice or skilled *You will find the professionals portfolios with their best projects they have worked on and for a motivation coz why not try everything before knowing what you really like*  WhoopeeWebs™ is **candy crinkles** attempt at **killing the cliche** kill the part of you where most of us get lost in dev area and finally gives up taking codejam as an example many teams have given up coz they cant do development in 5days **they wont learn anything like this**.
 ## Why to use WhoopeeWebs?
+- Want to know what will work best for you!
 - It can be a daunting task to choose a right path when we are new to certain field. 
 - In such a scenario we tend to go for mainstream options!
 - When a fresher or a student starts off their journey in computer science,their knowledge about the field is limited.
@@ -87,6 +88,8 @@ With our scouting the dev site [WhoopeeWebs™](https://unruffled-mayer-0f7872.n
 6. Press Enter. Your local clone will be created.
     
 For Other Way, you could visit our site [here](https://unruffled-mayer-0f7872.netlify.app/)!
+
+
 
 ---
 
