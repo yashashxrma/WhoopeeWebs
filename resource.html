@@ -1,156 +1,397 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8"/>
-        <title>WhoopeeWebs</title>
-        <link rel="stylesheet" type="text/css" href="./css/resource.css" />
-        <link rel="icon" href="./img/logo2.png" type="image/gif" sizes="16x16">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="./css/mainstyle.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">  
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-        <link href="./css/icofont.min.css" type="text/css" rel="stylesheet" media="all" />
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources — WhoopeeWebs</title>
+  <meta name="description" content="Curated learning resources for tech skills — SQL, Git, Python, CSS, AI, and more. Find the best video lectures and guides to kickstart your career.">
+  <link rel="icon" href="./img/logo2.png" type="image/png" sizes="16x16">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/mainstyle.css">
+  <style>
+    /* Page hero */
+    .page-hero {
+      position: relative;
+      padding: 10rem 0 5rem;
+      overflow: hidden;
+      text-align: center;
+    }
+    .page-hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.12;
+      pointer-events: none;
+      width: 500px; height: 500px;
+      background: #10b981;
+      top: -150px; left: 50%;
+      transform: translateX(-50%);
+    }
+    .page-hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 1rem;
+    }
+    .page-hero p {
+      color: #64748b;
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    .breadcrumb-nav { font-size:0.85rem; color:#475569; margin-bottom:1.5rem; }
+    .breadcrumb-nav a { color:#8b5cf6; text-decoration:none; }
+    .breadcrumb-nav a:hover { color:#a78bfa; }
 
-    </head>
-    <body>
-        <ul>
-          <li>
-            <a class="grow" href="index.html"><i class="bi bi-house-fill"></i> Home</a>
+    /* Resource cards */
+    .resources-section { padding: 3rem 0 6rem; }
+    .resource-card {
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: all 0.4s ease;
+      display: flex;
+      gap: 0;
+    }
+    .resource-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(16,185,129,0.35);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .resource-card-thumb {
+      width: 160px;
+      min-width: 160px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .resource-card-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 50%, rgba(15,23,42,0.8));
+    }
+    .resource-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      background: rgba(16,185,129,0.2);
+      border: 1px solid rgba(16,185,129,0.4);
+      color: #34d399;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+    .resource-card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .resource-domain {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #8b5cf6;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .resource-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .resource-subtitle {
+      font-size: 0.85rem;
+      color: #8b5cf6;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+    .resource-desc {
+      font-size: 0.875rem;
+      color: #64748b;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    .resource-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #34d399;
+      text-decoration: none;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: 0.5px;
+      transition: gap 0.3s ease;
+    }
+    .resource-link:hover { gap: 0.7rem; color: #6ee7b7; text-decoration: none; }
+    .resource-type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.25);
+      color: #fca5a5;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .resource-type-badge.guide {
+      background: rgba(59,130,246,0.12);
+      border-color: rgba(59,130,246,0.25);
+      color: #93c5fd;
+    }
+
+    /* Section title */
+    .res-section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .res-section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      .resource-card { flex-direction: column; }
+      .resource-card-thumb { width: 100%; min-width: unset; height: 150px; }
+      .resource-card-thumb::after { background: linear-gradient(to bottom, transparent, rgba(15,23,42,0.7)); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg glass-nav" style="position:fixed;top:0;left:0;right:0;z-index:1000;">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="./img/logo2.png" height="38" alt="WhoopeeWebs Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span style="color:#fff;font-size:1.5rem;"><i class="fas fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ml-auto" style="align-items:center; gap: 0.5rem;">
+          <li class="nav-item"><a class="nav-link" href="index.html" id="nav-home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about us.html" id="nav-about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="connect.html" id="nav-connect">Connect</a></li>
+          <li class="nav-item"><a class="nav-link" href="resource.html" id="nav-resources" style="color:#ffbf00 !important;">Resources</a></li>
+          <li class="nav-item" style="margin-left:0.5rem;">
+            <a href="https://forms.gle/LW9tjjeTv7KEd3z28" class="btn-primary-custom" style="font-size:0.85rem;padding:10px 22px;" id="nav-feedback" target="_blank">Feedback</a>
           </li>
-          
-          <li>
-            <a class="grow" href="connect.html"><i class="fas fa-award"></i> Connect</a>
-          </li>
-         
         </ul>
-  
-      <div class="cover">
-        <h4 class="display-3">WHAT TO AND WHERE TO LEARN? </h4>
-        <p class="lead">
-            Sure, there are tons of online classes, books, and resources.
-          But that doesn’t help much when you have no idea what you should be learning–which programming languages to learn, how to build a website, what online coding courses are worth your time, how to break into a new career, and so on. 
-        </p>
       </div>
-      <h3>Where to begin everything </h3>
-      <h5>Introductory guides to in-demand technology skills</h5>
-      <div class="student-card">
-    <div class="meta">
-      <div class="photo" style="background-image: url(https://pbs.twimg.com/profile_images/1255113654049128448/J5Yt92WW_400x400.png)"></div>
-      <ul class="details">
-        <li class="author"><a href="https://www.youtube.com/watch?v=WmGgxTpGs_8">VIDEO LECTURE</a></li>
-      </ul>
     </div>
-    <div class="description">
-      <h1>What is SQL?</h1>
-      <h2>A Beginner’s Guide to the SQL Language</h2>
-      <p>There’s a lot of buzz in the tech world about data–but of course, raw data isn’t very useful on its own. That’s where a language called SQL (also called Sequel) comes in.</p>
-      <p class="read-more">
-        <a href="#">EXPLORE MORE</a>
-      </p>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-orb"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <nav class="breadcrumb-nav">
+        <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Resources</span>
+      </nav>
+      <h1>What to Learn &amp; <span style="background:linear-gradient(135deg,#10b981,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Where to Start</span></h1>
+      <p>There are tons of online resources — but knowing which ones are worth your time is hard. We've curated the best starting points across every major tech domain.</p>
     </div>
   </div>
-  <div class="student-card alt">
-    <div class="meta">
-      <div class="photo" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg)"></div>
-      <ul class="details">
-        <li class="author"><a href="https://www.youtube.com/watch?v=WbwIoQYP6no">VIDEO LECTURE</a></li>
-      </ul>
+
+  <!-- RESOURCES SECTION -->
+  <section class="resources-section">
+    <div class="container">
+      <h2 class="res-section-title">📚 Foundations</h2>
+      <div class="d-flex flex-column gap-3" style="gap:1rem;">
+
+        <!-- SQL -->
+        <div class="resource-card">
+          <div class="resource-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=300&q=80')">
+            <span class="resource-badge">Beginner</span>
+          </div>
+          <div class="resource-card-body">
+            <div class="resource-domain">🗄️ Databases</div>
+            <div class="resource-title">What is SQL? A Beginner's Guide</div>
+            <div class="resource-subtitle">A Beginner's Guide to the SQL Language</div>
+            <p class="resource-desc">There's a lot of buzz about data — but raw data isn't useful without SQL (Structured Query Language). Learn how to query, filter, and analyse data from databases used at every major tech company.</p>
+            <div class="resource-footer">
+              <a href="https://www.youtube.com/watch?v=WmGgxTpGs_8" class="resource-link" id="resource-sql-link" target="_blank">Watch Video <i class="fas fa-arrow-right"></i></a>
+              <span class="resource-type-badge"><i class="fab fa-youtube"></i> Video Lecture</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Git & GitHub -->
+        <div class="resource-card">
+          <div class="resource-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=300&q=80')">
+            <span class="resource-badge">Beginner</span>
+          </div>
+          <div class="resource-card-body">
+            <div class="resource-domain">🔧 Version Control</div>
+            <div class="resource-title">Git & GitHub — The Developer's Essential</div>
+            <div class="resource-subtitle">Importance of Git in day-to-day development areas</div>
+            <p class="resource-desc">Git is a Version Control System that helps you manage project files. GitHub is the social networking site for developers. Every developer, regardless of domain, needs to master these tools.</p>
+            <div class="resource-footer">
+              <a href="https://www.youtube.com/watch?v=WbwIoQYP6no" class="resource-link" id="resource-git-link" target="_blank">Watch Video <i class="fas fa-arrow-right"></i></a>
+              <span class="resource-type-badge"><i class="fab fa-youtube"></i> Video Lecture</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Python -->
+        <div class="resource-card">
+          <div class="resource-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=300&q=80')">
+            <span class="resource-badge">Beginner</span>
+          </div>
+          <div class="resource-card-body">
+            <div class="resource-domain">🐍 Programming</div>
+            <div class="resource-title">Python — The Perfect Starting Language</div>
+            <div class="resource-subtitle">Trying to decide what programming language to learn first?</div>
+            <p class="resource-desc">Python powers everything from web scraping and automation to machine learning and AI. Clean syntax, a massive ecosystem, and huge industry demand make it the #1 language for beginners and professionals alike.</p>
+            <div class="resource-footer">
+              <a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3" class="resource-link" id="resource-python-link" target="_blank">Watch Series <i class="fas fa-arrow-right"></i></a>
+              <span class="resource-type-badge"><i class="fab fa-youtube"></i> Video Series</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS -->
+        <div class="resource-card">
+          <div class="resource-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80')">
+            <span class="resource-badge">Beginner</span>
+          </div>
+          <div class="resource-card-body">
+            <div class="resource-domain">🎨 Web Design</div>
+            <div class="resource-title">CSS — What Makes the Web Beautiful</div>
+            <div class="resource-subtitle">If HTML is the bones, CSS is the muscles and skin.</div>
+            <p class="resource-desc">Without CSS, web pages would be dull and boring. Learn the art of styling — from simple colors and fonts to complex layouts, animations, and responsive design patterns used by every modern website.</p>
+            <div class="resource-footer">
+              <a href="https://www.youtube.com/watch?v=qKoajPPWpmo&list=PLr6-GrHUlVf8JIgLcu3sHigvQjTw_aC9C" class="resource-link" id="resource-css-link" target="_blank">Watch Series <i class="fas fa-arrow-right"></i></a>
+              <span class="resource-type-badge"><i class="fab fa-youtube"></i> Video Series</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="res-section-title" style="margin-top:3rem;">🚀 In-Demand Skills</h2>
+      <div class="d-flex flex-column" style="gap:1rem;">
+        <!-- Tech skills 2024 -->
+        <div class="resource-card">
+          <div class="resource-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=300&q=80')">
+            <span class="resource-badge" style="background:rgba(255,191,0,0.15);border-color:rgba(255,191,0,0.4);color:#ffbf00;">Trending</span>
+          </div>
+          <div class="resource-card-body">
+            <div class="resource-domain" style="color:#ffbf00;">⚡ Career Guide</div>
+            <div class="resource-title">In-Demand Technology Skills to Learn in 2024</div>
+            <div class="resource-subtitle">Looking to break into tech? Here's where to focus your energy.</div>
+            <p class="resource-desc">An estimated one million tech jobs go unfulfilled every year, signaling a huge talent gap. This guide covers the most in-demand skills — from cloud computing and DevOps to AI engineering and data analytics — and exactly how to get started with each.</p>
+            <div class="resource-footer">
+              <a href="https://www.youtube.com/watch?v=314gRCdFkmg" class="resource-link" id="resource-skills-link" target="_blank">Watch Video <i class="fas fa-arrow-right"></i></a>
+              <span class="resource-type-badge"><i class="fab fa-youtube"></i> Video Lecture</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- GitHub guides -->
+        <div class="resource-card">
+          <div class="resource-card-thumb" style="background-image:url('https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=300&q=80')">
+            <span class="resource-badge resource-badge guide" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:#60a5fa;">Guide</span>
+          </div>
+          <div class="resource-card-body">
+            <div class="resource-domain" style="color:#60a5fa;">📖 Documentation</div>
+            <div class="resource-title">GitHub Learning Lab — Official Guides</div>
+            <div class="resource-subtitle">The official, interactive way to learn Git workflows</div>
+            <p class="resource-desc">The official GitHub Guides provide a hands-on learning environment for mastering Git and GitHub workflows. From creating your first repository to mastering branching strategies and pull requests — all in your browser.</p>
+            <div class="resource-footer">
+              <a href="https://guides.github.com/" class="resource-link" id="resource-github-guides-link" target="_blank" style="color:#60a5fa;">Read Guide <i class="fas fa-arrow-right"></i></a>
+              <span class="resource-type-badge guide"><i class="fas fa-book"></i> Official Guide</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom CTA -->
+      <div style="margin-top:4rem;padding:3rem 2rem;border-radius:24px;background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(59,130,246,0.1));border:1px solid rgba(16,185,129,0.2);text-align:center;">
+        <h3 style="font-family:'Outfit',sans-serif;font-size:1.7rem;font-weight:800;color:#f8fafc;margin-bottom:0.75rem;">Have a Resource to Share?</h3>
+        <p style="color:#64748b;margin-bottom:1.5rem;">Found a great tutorial, course, or guide? Let us know and we'll add it to our curated list for everyone to benefit.</p>
+        <a href="https://forms.gle/LW9tjjeTv7KEd3z28" class="btn-primary-custom" id="resource-suggest-btn" target="_blank" style="background:linear-gradient(135deg,#10b981,#3b82f6);box-shadow:0 4px 15px rgba(16,185,129,0.3);">Suggest a Resource →</a>
+      </div>
     </div>
-    <div class="description">
-      <h1>What is Git and Github?</h1>
-      <h2>Importance of git and github in our day to day Development areas.</h2>
-      <p>Git is a VCS — Version Control System. What that really means is, Git helps us manage our project files whereas GitHub is a web-based service for version control using Git. Basically, it is a social networking site for developers.</p>
-      <p class="read-more">
-        <a href="https://guides.github.com/">EXPLORE MORE</a>
-      </p>
-    </div>
-  </div>
-  <div class="student-card">
-    <div class="meta">
-      <div class="photo" style="background-image: url(https://www.gom.com/-/media/gom-website/global/services/gom-training-overview/elearning/gom_elearning-python-for-beginners_teaser.jpg?as=0&dmc=0&thn=0)"></div>
-      <ul class="details">
-        <li class="author"><a href="https://www.youtube.com/watch?v=QXeEoD0pB3E&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3">VIDEO LECTURE</a></li>
-      </ul>
-    </div>
-  <div class="description">
-    <h1>Learning Python is Perfect Opportunity</h1>
-    <h2> trying to decide what programming language to learn?</h2>
-    <p>Let’s first go over what Python is, what you can do with it, why to learn Python, what Python jobs you can get… and basically, why Python is an amazing language for anyone to learn!</p>
-    <p class="read-more">
-      <a href="#">EXPLORE MORE</a>
-    </p>  
-  </div>
-</div>
-<div class="student-card alt">
-    <div class="meta">
-      <div class="photo" style="background-image: url(https://pluralsight.imgix.net/paths/path-icons/css-c9b214f0d7.png)"></div>
-      <ul class="details">
-        <li class="author"><a href="https://www.youtube.com/watch?v=qKoajPPWpmo&list=PLr6-GrHUlVf8JIgLcu3sHigvQjTw_aC9C">VIDEO LECTURE</a></li>
-      </ul>
-    </div>
-    <div class="description">
-      <h1>What Is CSS? How to Learn CSS for Beginners</h1>
-      <h2>If HTML is the bones of a website,CSS is what makes the muscles.Without CSS, web pages would be dull and boring.</h2>
-      <p>The syntax and concepts of CSS make sense to even the not-so-tech-savvy. Plus, we see CSS every day on the websites we know and love, which makes it easier to understand the need for CSS and how and why CSS is used.</p>
-      <p class="read-more">
-        <a href="https://guides.github.com/">EXPLORE MORE</a>
-      </p>
-    </div>
-  </div>
-  <div class="student-card">
-    <div class="meta">
-      <div class="photo" style="background-image: url(https://cdn.discordapp.com/attachments/893117642251063307/894472157785108480/unknown.png)"></div>
-      <ul class="details">
-        <li class="author"><a href="">VIDEO LECTURE</a></li>
-      </ul>
-    </div>
-    <div class="description">
-      <h1>In-Demand Technology Skills to Learn in 2021</h1>
-      <h2>Looking to change fields and get into tech, but don’t know what skills you need to launch your career?</h2>
-      <p>An estimated one million tech jobs went unfulfilled in 2020, signaling a huge technology talent deficit in the U.S. Furthermore, over 50% of company learning & development leaders in a Udemy survey said technical skills were their top priority for training in 2020.</p>
-      <p class="read-more">
-        <a href="https://www.youtube.com/watch?v=314gRCdFkmg">VIDEO LECTURE</a>
-      </p>
-    </div>
-  </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="content">
-      <div class="left box">
-        <div class="upper">
-          <div class="topic">ABOUT US</div>
-          <p>WhoopeeWebs</p>
-        </div>
-        <div class="lower">
-          <div class="topic">CONTACT US</div>
-          <div class="phone">
-            <a href="#"><i class="fas fa-phone-volume"></i>+91XXXXXXXXX</a>
+    <div class="container">
+      <div class="row" style="gap:2rem 0;">
+        <div class="col-md-4">
+          <div class="footer-topic">WhoopeeWebs</div>
+          <p class="footer-text">Helping students and freshers navigate the tech world by exploring diverse fields and connecting with mentors.</p>
+          <div class="social-icons" style="margin-top:1.5rem;">
+            <a href="https://github.com/yashashxrma/WhoopeeWebs" target="_blank" id="footer-github"><i class="fab fa-github"></i></a>
+            <a href="#" id="footer-linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" id="footer-twitter"><i class="fab fa-twitter"></i></a>
           </div>
         </div>
-      </div>
-      <div class="middle box">
-        <div class="topic">LEGAL</div>
-        <div><a href="#">Terms</a></div>
-        <div><a href="#">Privacy</a></div>
-      </div>
-      <div class="right box">
-        <div class="topic">SUBSCRIBE US</div>
-        <form action="#">
-          <input type="text" placeholder="Enter email address">
-          <input type="submit" name="" value="Send">
-          <div class="media-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="https://github.com/yashashxrma/WhoopeeWebs"><i class="fab fa-github" ></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <div class="col-md-2 offset-md-1">
+          <div class="footer-topic">Navigate</div>
+          <div class="footer-links">
+            <a href="index.html" id="footer-nav-home">Home</a>
+            <a href="about us.html" id="footer-nav-about">About Us</a>
+            <a href="connect.html" id="footer-nav-connect">Connect</a>
+            <a href="resource.html" id="footer-nav-resources">Resources</a>
           </div>
-        </form>
+        </div>
+        <div class="col-md-2">
+          <div class="footer-topic">Legal</div>
+          <div class="footer-links">
+            <a href="#" id="footer-terms">Terms</a>
+            <a href="#" id="footer-privacy">Privacy</a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="footer-topic">Stay in Loop</div>
+          <p class="footer-text" style="font-size:0.9rem;">Get updates on new resources and mentors.</p>
+          <form style="margin-top:1rem;" id="footer-subscribe-form">
+            <input type="email" id="footer-email-input" placeholder="Enter your email" style="width:100%;padding:10px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#f8fafc;outline:none;font-size:0.9rem;margin-bottom:0.75rem;">
+            <button type="submit" id="footer-subscribe-btn" style="width:100%;padding:10px;background:linear-gradient(135deg,#8b5cf6,#3b82f6);border:none;border-radius:10px;color:#fff;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2024 <strong>WhoopeeWebs</strong>. Made with ❤️ by the WhoopeeWebs Team. All rights reserved.</p>
       </div>
     </div>
-    <div class="bottom">
-      <p>Copyright &#169; 2021 <a href="#">WhoopeeWebs</a> Website made possible by: WhoopeeWebs ©. All rights reserved.</p>
-    </div>
-</footer>
-    </body>
+  </footer>
+
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+</body>
 </html>

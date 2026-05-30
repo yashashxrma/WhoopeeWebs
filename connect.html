@@ -1,131 +1,456 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>WhoopeeWebs</title>
-<link rel="icon" href="./img/logo2.png" type="image/gif" sizes="16x16">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css" media="all" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
-<link href="./css/icofont.min.css" type="text/css" rel="stylesheet" media="all" />
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-<link rel="stylesheet" href="./dist/connect.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect — WhoopeeWebs</title>
+  <meta name="description" content="Connect with tech professionals and mentors on WhoopeeWebs. Find the right guide for your career journey in AI, ML, Data Science, Cybersecurity and more.">
+  <link rel="icon" href="./img/logo2.png" type="image/png" sizes="16x16">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/mainstyle.css">
+  <style>
+    /* Page hero */
+    .page-hero {
+      position: relative;
+      padding: 10rem 0 5rem;
+      overflow: hidden;
+      text-align: center;
+    }
+    .page-hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.12;
+      pointer-events: none;
+      width: 500px; height: 500px;
+      background: #3b82f6;
+      top: -150px; left: 50%;
+      transform: translateX(-50%);
+    }
+    .page-hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 1rem;
+    }
+    .page-hero p {
+      color: #64748b;
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    .breadcrumb-nav { font-size:0.85rem; color:#475569; margin-bottom:1.5rem; }
+    .breadcrumb-nav a { color:#8b5cf6; text-decoration:none; }
+    .breadcrumb-nav a:hover { color:#a78bfa; }
+
+    /* Filter tabs */
+    .filter-tabs { display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:3rem; }
+    .filter-tab {
+      padding: 8px 20px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #64748b;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Outfit', sans-serif;
+    }
+    .filter-tab.active, .filter-tab:hover {
+      background: rgba(139,92,246,0.15);
+      border-color: rgba(139,92,246,0.4);
+      color: #a78bfa;
+    }
+
+    /* Profile cards */
+    .profiles-section { padding: 2rem 0 6rem; }
+    .profile-card {
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: all 0.4s ease;
+      height: 100%;
+    }
+    .profile-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(59,130,246,0.4);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .profile-card-header {
+      position: relative;
+      height: 120px;
+      background: linear-gradient(135deg, rgba(139,92,246,0.3), rgba(59,130,246,0.3));
+    }
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.1);
+      object-fit: cover;
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .profile-avatar img { width:100%;height:100%;object-fit:cover; }
+    .profile-avatar-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.1);
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+    }
+    .profile-card-body {
+      padding: 3rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+    .profile-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 0.25rem;
+    }
+    .profile-role {
+      font-size: 0.8rem;
+      color: #8b5cf6;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+    .profile-bio {
+      font-size: 0.875rem;
+      color: #64748b;
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .profile-tags { display:flex; flex-wrap:wrap; justify-content:center; gap:0.4rem; margin-bottom:1.25rem; }
+    .profile-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #94a3b8;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+    }
+    .profile-actions { display:flex; gap:0.5rem; justify-content:center; }
+    .btn-connect {
+      flex: 1;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s ease;
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+    .btn-github {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #94a3b8;
+    }
+    .btn-github:hover { background: rgba(255,255,255,0.1); color:#fff; text-decoration:none; }
+    .btn-linkedin {
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.3);
+      color: #60a5fa;
+    }
+    .btn-linkedin:hover { background: rgba(59,130,246,0.25); color:#93c5fd; text-decoration:none; }
+
+    /* CTA banner */
+    .cta-banner {
+      margin: 2rem 0 5rem;
+      padding: 3rem 2rem;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(59,130,246,0.15));
+      border: 1px solid rgba(139,92,246,0.25);
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 0.75rem;
+    }
+    .cta-banner p { color:#94a3b8; margin-bottom:1.5rem; }
+  </style>
 </head>
 <body>
-        <ul>
-                <li>
-                  <a class="grow" href="index.html"><i class="bi bi-house-fill"></i> Home</a>
-                </li>
-                
-                <li>
-                  <a class="grow" href="https://forms.gle/LW9tjjeTv7KEd3z28"><i></i>Feedback</a>
-                </li>
-               
-        </ul>
-<section class="wrapper">
-    <div class="container-fostrap">
-    <div>
-    <img src="" class="fostrap-logo"/>
-        <h1 class="heading">
-                CONNECT TO THE PROFESSIONALS CHOOSE YOUR PATHS!!
-        </h1>
-    </div>
-    <div class="content">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg glass-nav" style="position:fixed;top:0;left:0;right:0;z-index:1000;">
     <div class="container">
-    <div class="row">
-    <div class="col-xs-12 col-sm-4">
-        <div class="card">
-            <a class="img-card" href="">
-            <img src="https://www.pinclipart.com/picdir/big/165-1655940_account-human-person-user-icon-username-png-icon.png" />
-            </a>
-            <div class="card-content">
-            <h4 class="card-title">
-            <a href="">XYZ 
-            </a>
-            </h4>
-            <p class="">Hey there, I’m XYZ am a undergraduate student working on some cool open source projects.My interest area is in ML.You can usually connect me on linkedin </p>
+      <a class="navbar-brand" href="index.html">
+        <img src="./img/logo2.png" height="38" alt="WhoopeeWebs Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span style="color:#fff;font-size:1.5rem;"><i class="fas fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ml-auto" style="align-items:center; gap: 0.5rem;">
+          <li class="nav-item"><a class="nav-link" href="index.html" id="nav-home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about us.html" id="nav-about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="connect.html" id="nav-connect" style="color:#ffbf00 !important;">Connect</a></li>
+          <li class="nav-item"><a class="nav-link" href="resource.html" id="nav-resources">Resources</a></li>
+          <li class="nav-item" style="margin-left:0.5rem;">
+            <a href="https://forms.gle/LW9tjjeTv7KEd3z28" class="btn-primary-custom" style="font-size:0.85rem;padding:10px 22px;" id="nav-feedback" target="_blank">Feedback</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-orb"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <nav class="breadcrumb-nav">
+        <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Connect</span>
+      </nav>
+      <h1>Connect to the <span style="background:linear-gradient(135deg,#3b82f6,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Professionals</span></h1>
+      <p>Choose your path and reach out to the people who've walked it. Find mentors across every tech domain and learn from their real-world experience.</p>
+    </div>
+  </div>
+
+  <!-- PROFILES -->
+  <section class="profiles-section">
+    <div class="container">
+      <!-- Filter tabs -->
+      <div class="filter-tabs">
+        <button class="filter-tab active" id="filter-all">All</button>
+        <button class="filter-tab" id="filter-ml">AI / ML</button>
+        <button class="filter-tab" id="filter-data">Data Science</button>
+        <button class="filter-tab" id="filter-web">Web Dev</button>
+        <button class="filter-tab" id="filter-security">Cybersecurity</button>
+      </div>
+
+      <div class="row g-4">
+        <!-- Profile 1 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <div class="profile-avatar-placeholder">Y</div>
+            </div>
+            <div class="profile-card-body">
+              <div class="profile-name">Yashasvi Sharma</div>
+              <div class="profile-role">Full Stack & ML</div>
+              <p class="profile-bio">Undergraduate developer passionate about open-source projects. Loves building at the intersection of ML and web. Co-creator of WhoopeeWebs.</p>
+              <div class="profile-tags">
+                <span class="profile-tag">Machine Learning</span>
+                <span class="profile-tag">Python</span>
+                <span class="profile-tag">React</span>
+              </div>
+              <div class="profile-actions">
+                <a href="https://github.com/yashashxrma" class="btn-connect btn-github" id="profile-yash-github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" class="btn-connect btn-linkedin" id="profile-yash-linkedin" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card-read-more">
-            <a href="" class="btn btn-link btn-block">About Me</a>
+
+        <!-- Profile 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="profile-card">
+            <div class="profile-card-header" style="background:linear-gradient(135deg,rgba(59,130,246,0.3),rgba(16,185,129,0.3));">
+              <div class="profile-avatar-placeholder" style="background:linear-gradient(135deg,#3b82f6,#10b981);">N</div>
+            </div>
+            <div class="profile-card-body">
+              <div class="profile-name">Nikita Singhal</div>
+              <div class="profile-role">Data Science</div>
+              <p class="profile-bio">Undergraduate student exploring the world of data and analytics. Interested in uncovering insights from complex datasets and building predictive models.</p>
+              <div class="profile-tags">
+                <span class="profile-tag">Data Science</span>
+                <span class="profile-tag">Python</span>
+                <span class="profile-tag">SQL</span>
+              </div>
+              <div class="profile-actions">
+                <a href="https://github.com/nikita78699" class="btn-connect btn-github" id="profile-nikita-github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" class="btn-connect btn-linkedin" id="profile-nikita-linkedin" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Profile 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="profile-card">
+            <div class="profile-card-header" style="background:linear-gradient(135deg,rgba(245,158,11,0.3),rgba(239,68,68,0.3));">
+              <div class="profile-avatar-placeholder" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">P</div>
+            </div>
+            <div class="profile-card-body">
+              <div class="profile-name">Pinaki</div>
+              <div class="profile-role">Cybersecurity</div>
+              <p class="profile-bio">Cybersecurity enthusiast with a knack for ethical hacking and network security. Believes in building a safer digital world, one vulnerability at a time.</p>
+              <div class="profile-tags">
+                <span class="profile-tag">Cybersecurity</span>
+                <span class="profile-tag">Networking</span>
+                <span class="profile-tag">Linux</span>
+              </div>
+              <div class="profile-actions">
+                <a href="https://github.com/pinaki18" class="btn-connect btn-github" id="profile-pinaki-github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" class="btn-connect btn-linkedin" id="profile-pinaki-linkedin" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile 4 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="profile-card">
+            <div class="profile-card-header" style="background:linear-gradient(135deg,rgba(16,185,129,0.3),rgba(59,130,246,0.3));">
+              <div class="profile-avatar-placeholder" style="background:linear-gradient(135deg,#10b981,#3b82f6);">A</div>
+            </div>
+            <div class="profile-card-body">
+              <div class="profile-name">Anuj Agarwal</div>
+              <div class="profile-role">Web Development</div>
+              <p class="profile-bio">Full-stack developer with a love for creating elegant UIs and building robust backend systems. Always exploring new frameworks and design patterns.</p>
+              <div class="profile-tags">
+                <span class="profile-tag">JavaScript</span>
+                <span class="profile-tag">Node.js</span>
+                <span class="profile-tag">React</span>
+              </div>
+              <div class="profile-actions">
+                <a href="https://github.com/anuj489" class="btn-connect btn-github" id="profile-anuj-github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" class="btn-connect btn-linkedin" id="profile-anuj-linkedin" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile 5 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="profile-card">
+            <div class="profile-card-header" style="background:linear-gradient(135deg,rgba(236,72,153,0.3),rgba(139,92,246,0.3));">
+              <div class="profile-avatar-placeholder" style="background:linear-gradient(135deg,#ec4899,#8b5cf6);">V</div>
+            </div>
+            <div class="profile-card-body">
+              <div class="profile-name">Vridhi</div>
+              <div class="profile-role">AI / Deep Learning</div>
+              <p class="profile-bio">AI researcher and deep learning enthusiast. Focused on computer vision and NLP applications. Passionate about making AI accessible to everyone.</p>
+              <div class="profile-tags">
+                <span class="profile-tag">Deep Learning</span>
+                <span class="profile-tag">Computer Vision</span>
+                <span class="profile-tag">TensorFlow</span>
+              </div>
+              <div class="profile-actions">
+                <a href="https://github.com/vridhi4" class="btn-connect btn-github" id="profile-vridhi-github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" class="btn-connect btn-linkedin" id="profile-vridhi-linkedin" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile 6 — Placeholder -->
+        <div class="col-lg-4 col-md-6">
+          <div class="profile-card" style="border-style:dashed;opacity:0.5;cursor:default;">
+            <div class="profile-card-header" style="background:rgba(255,255,255,0.03);">
+              <div class="profile-avatar-placeholder" style="background:rgba(255,255,255,0.05);color:#334155;font-size:2rem;">+</div>
+            </div>
+            <div class="profile-card-body">
+              <div class="profile-name" style="color:#334155;">Your Profile Here</div>
+              <div class="profile-role" style="color:#1e3a5f;">Coming Soon</div>
+              <p class="profile-bio" style="color:#1e3a5f;">Are you a professional or alumni? Join WhoopeeWebs as a mentor and help the next generation find their path.</p>
+              <div class="profile-actions">
+                <a href="https://forms.gle/LW9tjjeTv7KEd3z28" class="btn-connect btn-linkedin" id="profile-apply-mentor" target="_blank" style="flex:unset;width:100%;">Apply to Mentor</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="cta-banner">
+        <h3>Are You a Professional?</h3>
+        <p>Join WhoopeeWebs as a mentor and help students navigate their tech career journey. Share your expertise, host sessions, and make an impact.</p>
+        <a href="https://forms.gle/LW9tjjeTv7KEd3z28" class="btn-primary-custom" id="cta-become-mentor" target="_blank">Become a Mentor →</a>
+      </div>
     </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row" style="gap:2rem 0;">
+        <div class="col-md-4">
+          <div class="footer-topic">WhoopeeWebs</div>
+          <p class="footer-text">Helping students and freshers navigate the tech world by exploring diverse fields and connecting with mentors.</p>
+          <div class="social-icons" style="margin-top:1.5rem;">
+            <a href="https://github.com/yashashxrma/WhoopeeWebs" target="_blank" id="footer-github"><i class="fab fa-github"></i></a>
+            <a href="#" id="footer-linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" id="footer-twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2 offset-md-1">
+          <div class="footer-topic">Navigate</div>
+          <div class="footer-links">
+            <a href="index.html" id="footer-nav-home">Home</a>
+            <a href="about us.html" id="footer-nav-about">About Us</a>
+            <a href="connect.html" id="footer-nav-connect">Connect</a>
+            <a href="resource.html" id="footer-nav-resources">Resources</a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="footer-topic">Legal</div>
+          <div class="footer-links">
+            <a href="#" id="footer-terms">Terms</a>
+            <a href="#" id="footer-privacy">Privacy</a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="footer-topic">Stay in Loop</div>
+          <p class="footer-text" style="font-size:0.9rem;">Get updates on new resources and mentors.</p>
+          <form style="margin-top:1rem;" id="footer-subscribe-form">
+            <input type="email" id="footer-email-input" placeholder="Enter your email" style="width:100%;padding:10px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#f8fafc;outline:none;font-size:0.9rem;margin-bottom:0.75rem;">
+            <button type="submit" id="footer-subscribe-btn" style="width:100%;padding:10px;background:linear-gradient(135deg,#8b5cf6,#3b82f6);border:none;border-radius:10px;color:#fff;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2024 <strong>WhoopeeWebs</strong>. Made with ❤️ by the WhoopeeWebs Team. All rights reserved.</p>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-            <div class="card">
-            <a class="img-card" href="">
-            <img src="https://www.pinclipart.com/picdir/big/165-1655940_account-human-person-user-icon-username-png-icon.png" /></a>
-    <div class="card-content">
-            <h4 class="card-title">
-            <a href=""> abc </a>
-            </h4>
-            <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    </div>
-    <div class="card-read-more">
-            <a href="" class="btn btn-link btn-block">
-           About Me
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-    <div class="col-xs-12 col-sm-4">
-            <div class="card">
-            <a class="img-card" href="">
-            <img src="https://www.pinclipart.com/picdir/big/165-1655940_account-human-person-user-icon-username-png-icon.png" /> </a>
-    <div class="card-content">
-            <h4 class="card-title">
-            <a href=""> klm</a>
-            </h4>
-            <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit,Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-    <div class="card-read-more">
-            <a href="" class="btn btn-link btn-block">About Me </a>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
- </div>
-</section>
-<!-- <footer> -->
-        <footer>
-                <div class="content">
-                  <div class="left box">
-                    <div class="upper">
-                      <div class="topic">ABOUT US</div>
-                      <p>WhoopeeWebs</p>
-                    </div>
-                    <div class="lower">
-                      <div class="topic">CONTACT US</div>
-                      <div class="phone">
-                        <a href="#"><i class="fas fa-phone-volume"></i>+91XXXXXXXXX</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="middle box">
-                    <div class="topic">LEGAL</div>
-                    <div><a href="#">Terms</a></div>
-                    <div><a href="#">Privacy</a></div>
-                  </div>
-                  <div class="right box">
-                    <div class="topic">SUBSCRIBE US</div>
-                    <form action="#">
-                      <input type="text" placeholder="Enter email address">
-                      <input type="submit" name="" value="Send">
-                      <div class="media-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="https://github.com/yashashxrma/WhoopeeWebs"><i class="fab fa-github" ></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="bottom">
-                  <p>Copyright &#169; 2021 <a href="#">WhoopeeWebs</a> Website made possible by: WhoopeeWebs ©. All rights reserved.</p>
-                </div>
-            </footer>
-            </div>   
+  </footer>
+
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    // Filter tabs interactivity
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
